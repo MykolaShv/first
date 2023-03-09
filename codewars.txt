@@ -1,0 +1,367 @@
+1. https://www.codewars.com/kata/5b39e91ee7a2c103300018b3/train/python
+def remove_consecutive_duplicates(s):
+    answ = ''
+    s1 = s.split(' ') 
+    l = len(s1)-1
+    for i in range(l):
+        if s1[i] != s1[i+1]:
+            answ += str(s1[i]) + ' '
+    answ += s1[l]
+    return answ
+а так просто  x=""
+    return ' '.join(w for w in s.split() if x!=w and (x:=w))
+
+2. https://www.codewars.com/kata/54147087d5c2ebe4f1000805/train/python
+def _if(bool, func1, func2):
+    return func1() if bool==True else func2() 
+    
+def func1(): 
+    print("True")
+
+def func2(): 
+    print("False")
+
+а моно просто func1() if bool else func2()
+
+3. https://www.codewars.com/kata/54edbc7200b811e956000556/train/python
+def count_sheeps(sheep):
+    s = 0
+    for el in sheep:        
+        if el == 1:
+            s +=1
+    return s
+
+а моно return arrayOfSheeps.count(True)
+
+4. https://www.codewars.com/kata/551f37452ff852b7bd000139/train/python
+def add_binary(a,b):
+    return bin(a+b)[2:]
+
+а моно format(a + b, 'b')
+
+5. https://www.codewars.com/kata/5a81b78d4a6b344638000183/train/python
+
+def conjugate(verb):
+    ar(verb) if str(verb)[-2:] == 'ar' else er(verb) if str(verb)[-2:] == 'er' else ir(verb)
+    my_verb = []
+    my_dic = {}
+    [my_verb.append(str(verb)[:-2] + el) for el in list_end]
+    my_dic.update({verb: my_verb})
+    return my_dic
+
+def ar(verb):
+    global list_end
+    list_end = ['o', 'as', 'a', 'amos', 'ais', 'an']
+
+
+def er(verb):
+    global list_end
+    list_end = ['o', 'es', 'e', 'emos', 'eis', 'en']
+
+def ir(verb):
+    global list_end
+    list_end = ['o', 'es', 'e', 'imos', 'is', 'en']
+
+
+а моно
+
+SUFFIXES = {'a': ['o', 'as', 'a', 'amos', 'ais', 'an'],
+            'e': ['o', 'es', 'e', 'emos', 'eis', 'en'],
+            'i': ['o', 'es', 'e', 'imos', 'is',  'en']}
+
+def conjugate(verb):
+    return {verb: [verb[:-2] + s for s in SUFFIXES[verb[-2]]]}
+
+6. https://www.codewars.com/kata/53dc54212259ed3d4f00071c/train/python
+def sum_array(a):
+    return sum(a)
+
+7. https://www.codewars.com/kata/556deca17c58da83c00002db/train/python
+def tribonacci(signature, n):
+    a = []
+    if n>2:
+        [a.append(el) for el in signature]
+        [a.append(sum(a[-3:])) for el in range(n-3)]
+    elif n == 2:
+        a.append(signature[0])
+        a.append(signature[1])
+    elif n == 1:
+        a.append(signature[0])   
+    return a
+
+а моно
+ res = signature[:n]
+  for i in range(n - 3): res.append(sum(res[-3:]))
+  return res
+
+8. https://www.codewars.com/kata/583952fbc23341c7180002fd/train/python
+def order_food(lst): 
+    an_list = []
+    [an_list.append(list(el.values())[-1]) for el in lst]
+    answ = dict((i, an_list.count(i)) for i in an_list)
+    return answ
+
+9. https://www.codewars.com/kata/5601409514fc93442500010b/train/python
+def better_than_average(class_points, your_points):
+    my_sum = 0
+    for el in class_points:
+        my_sum += el
+    avr = my_sum/len(class_points)
+    return False if avr > your_points else True
+
+ДАТА: 05/03/23
+10. https://www.codewars.com/kata/5829ca646d02cd1a65000284/train/python
+def is_age_diverse(lst): 
+    an_list = []
+    [an_list.append(list(el.values())[-2]) for el in lst]
+    an_list_int = []
+    [an_list_int.append(int(el//10)) for el in an_list]
+    my_min = min(list(set([i for i in range(1, 20)]) - set(an_list_int)))
+    return True if my_min > 9 else False
+
+а моно
+return {min(dev["age"] // 10, 10) for dev in lst} >= set(range(1, 11))
+
+11. https://www.codewars.com/kata/582746fa14b3892727000c4f/train/python
+def count_developers(lst):
+    answ = 0
+    for el in lst:       
+        if list(el.values())[-3] == 'Europe' and list(el.values())[-1] == 'JavaScript':
+            answ += 1
+    return answ
+
+а моно
+return sum(x["language"] == "JavaScript" and x["continent"] == "Europe" for x in lst)
+
+12. https://www.codewars.com/kata/58279e13c983ca4a2a00002a/train/python
+def greet_developers(lst): 
+    [el.update({'greeting': 'Hi ' + el['firstName'] +', what do you like the most about ' + el['language'] + '?'}) for el in lst]
+    return lst
+
+а моно
+    return [{**i, 'greeting': f"Hi {i['firstName']}, what do you like the most about {i['language']}?"} for i in lst]
+
+13. https://www.codewars.com/kata/5827acd5f524dd029d0005a4/train/python
+def is_ruby_coming(lst): 
+    return True if True in [True if x["language"] == "Ruby" else False for x in lst] else False
+
+05/03/2023
+
+14. https://www.codewars.com/kata/5827bc50f524dd029d0005f2/train/python
+def get_first_python(users):
+    my_list = []
+    answ_list = []
+    for el in users:
+        k = list(el.values())[-1]
+        if k == 'Python':
+            n1 = list(el.values())[0]
+            n2 = list(el.values())[2]
+            answ_list = n1 + ', ' + n2
+            break
+    return answ_list if answ_list else 'There will be no Python developers'
+
+а моно
+return next(('{}, {}'.format(d['first_name'],d['country']) for d in users if d['language'] == 'Python'),'There will be no Python developers')
+
+
+15. https://www.codewars.com/kata/5828713ed04efde70e000346/train/python
+def count_languages(lst): 
+    lang_list = []
+    [lang_list.append(list(el.values())[-1]) for el in lst]
+    my_dic = {}
+    for lang in lang_list:         
+        my_dic[lang] = lang_list.count(lang)
+    return my_dic
+
+а моно
+language = [el['language'] for el in lst]
+    return {i: language.count(i) for i in language}
+
+
+16. https://www.codewars.com/kata/58287977ef8d4451f90001a0/train/python
+def is_same_language(lst): 
+    return return len(set([el['language'] for el in lst])) == 1
+
+
+17. https://www.codewars.com/kata/586909e4c66d18dd1800009b/train/python
+def multiply_all(lis):
+    def multiplyAll(n):
+        return [el*n for el in lis]
+    return multiplyAll
+
+а моно
+def multiply_all(integers: list):
+    return lambda n: [n * i for i in integers]
+
+18. https://www.codewars.com/kata/582887f7d04efdaae3000090/train/python
+def find_senior(lst): 
+    answ  = []
+    age_max = max([int(el['age']) for el in lst])
+    for el in lst:
+        if int(el['age']) == age_max:
+            answ.append(el)
+    return(answ)
+
+19. https://www.codewars.com/kata/58291fea7ff3f640980000f9/train/python
+def all_continents(lst): 
+    result = {'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'} - set([el['continent'] for el in lst]) 
+    return  True if result==set() else False
+а моно
+return len(set(x["continent"] for x in lst)) == 5
+
+
+08.03.23
+20. https://www.codewars.com/kata/546e2562b03326a88e000020/train/python
+def square_digits(num):
+    answ = ''
+    for el in str(num):
+        answ += str(int(el)**2)
+    return int(answ)
+
+21. https://www.codewars.com/kata/54ff3102c1bad923760001f3/train/python
+def get_count(sentence):
+    i = 0
+    for el in sentence:
+        if el == 'a' or el == 'e' or el == 'i' or el == 'o' or el == 'u':
+            i+=1
+    return i
+
+а моно
+return sum(c in 'aeiou' for c in sentence)
+
+22. https://www.codewars.com/kata/583203e6eb35d7980400002a/train/python
+
+dic_name = []
+    for devel in lst:
+        sum_name = sum(ord(i) for i in devel['firstName'])
+        if sum_name % 2:
+            dic_name.append(devel)
+    return dic_name
+
+23. https://www.codewars.com/kata/583203e6eb35d7980400002a/train/python
+def count_smileys(arr):
+    i = 0
+    for el in arr:
+        if len(el) == 2:
+            if el[0] == ':' or el[0] == ';':
+                if el[1] == ')' or el[1] == 'D':
+                    i +=1 
+        elif len(el) == 3:
+            if el[0] == ':' or el[0] == ';':
+                if el[1] == '-' or el[1] == '~':
+                    if el[2] == ')' or el[2] == 'D':
+                        i +=1            
+        else:
+            i +=0        
+    return i
+
+сподобалося
+def count_smileys(arr):
+    eyes = [":", ";"]
+    noses = ["", "-", "~"]
+    mouths = [")", "D"]
+    count = 0
+    for eye in eyes:
+        for nose in noses:
+            for mouth in mouths:
+                face = eye + nose + mouth
+                count += arr.count(face)
+    return count
+
+24. https://www.codewars.com/kata/525f50e3b73515a6db000b83/train/python
+def create_phone_number(n):
+    st_el = ''
+    for el in n:
+        st_el += str(el)
+    answ = '(' + st_el[0:3] + ') '+ st_el[3:6] +'-' + st_el[6:]
+    return answ
+
+а моно
+return "({}{}{}) {}{}{}-{}{}{}{}".format(*n)
+
+25. https://www.codewars.com/kata/5265326f5fda8eb1160004c8/train/python
+def number_to_string(num):
+    return str(num)
+
+26. https://www.codewars.com/kata/546f922b54af40e1e90001da/train/python
+def alphabet_position(text):
+    l_alph = list('abcdefghijklmnopqrstuvwxyz')
+    l_num = [i for i in range(28)]
+    text = text.lower()
+    answ = ''
+    for el in text:
+        for j in l_alph:
+            if el == j:
+                k = l_alph.index(j)
+                answ += str(l_num[k+1]) + ' '
+    return answ[:-1]
+а моно
+return " ".join(str(ord(c)-ord("a")+1) for c in s.lower() if c.isalpha())
+
+
+27. https://www.codewars.com/kata/551b4501ac0447318f0009cd/train/python
+def boolean_to_string(b):
+    if b:
+        return str(True)
+    else:
+        return str(False)
+
+
+28. https://www.codewars.com/kadef points(games):
+    k = 0
+    for el in games:        
+        if int(el[0]) > int(el[2]):
+            k +=3
+        elif int(el[0]) == int(el[2]):
+            k +=1
+        else:
+            k +=0
+    return k
+
+29. https://www.codewars.com/kata/576757b1df89ecf5bd00073b/train/python
+def tower_builder(n_floors):
+    k = int(n_floors)+1
+    list_answ = []
+    for i in range(1,k):
+        answ = ' '*(k-i-1)+ '*'*i + '*'*(i-1) +' '*(k-i-1)
+        list_answ.append(answ)
+    return list_answ 
+а моно
+return [" " * (n - i - 1) + "*" * (2*i + 1) + " " * (n - i - 1) for i in range(n)]
+
+
+30. https://www.codewars.com/kata/523f5d21c841566fde000009/train/python
+def array_diff(a, b):
+    return  [x for x in a if x not in b]
+
+
+
+ta/5bb904724c47249b10000131/train/python
+
+
+13
+def is_language(list_lang):
+    j_s = 0
+    py = 0
+    ruby = 0
+    for lang in list_lang:
+        if lang['language'] == 'JavaScript':
+            j_s += 1
+        elif lang['language'] == 'Ruby':
+            ruby += 1
+        else:
+            py += 1
+    if py/j_s > 2 or py/ruby > 2:
+        return False
+    if j_s/py > 2 or j_s/ruby > 2:
+        return False
+    if ruby/py > 2 or ruby/j_s > 2:
+        return False
+    return True
+
+def find_admin(lst, lang): 
+    res = []
+    for d in lst:
+        if d ['githubAdmin'] == 'yes' and d['language'] == lang:
+        	res.append(d)
+    return res
